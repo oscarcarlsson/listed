@@ -57,7 +57,7 @@ disableHugoGeneratorInject = true
 
 [outputFormats.RSS]
   mediatype = "application/rss"
-  baseName = "atom"
+  baseName = "index"
 
 [outputFormats.JSON]
   mediatype = "application/json"
