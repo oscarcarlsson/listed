@@ -16,7 +16,7 @@
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <description>{{ .Content | html }}</description>
-      <author>ronalds.vilcins@gmail.com (Ronalds Vilcins)</author>
+      <author>oscar@spindel.tax (Oscar C)</author>
       <guid>{{ .Permalink }}</guid>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
     </item>
