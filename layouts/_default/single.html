@@ -1,49 +1,23 @@
 <!doctype html>
 <html lang="en">
   {{ partial "head.html" . }}
-<body>
-  <a class="skip-link" href="#main">Skip to main</a>
-<main id="main">
-  <div class="content">
-    {{ partial "header.html" . }}
-      {{ if eq .Type "photos" }}
-      <h2>{{ .Title }}</h2>
-      {{ end }}
-        {{ if eq .Type "photos" }}
-      {{ with .Params.image }}
-        <img src="{{ . }}"></img>
-      {{ end }}</a>
-      {{ end }}
-      <h2 class="post">{{ .Title }}</h2>
-      {{ .Content }}
-      {{ if eq .Type "posts" }}
-      {{ end }}
-      {{ if eq .Title "Projects" }}
-      <ul class="list">
-        {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
-          {{ if ne .Kind "section" }}
-          <li>
-            <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
-          </li>
-          {{ end }}
+  <body>
+    <main>
+      {{ partial "header.html" . }}
+      <section>
+        {{ if eq .Type "posts" }}
+        <h2 itemprop="name headline">{{ .Title }}</h2>
+        <p class="meta">
+          <time itemprop="datePublished" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat " January 02, 2006" .Date }}</time> &bull;
+          {{ partial "tags.html" .}}
+        </p>
         {{ end }}
-      </ul>
-      {{ end }}
-      {{ if eq .Title "Photos" }}
-      <ul class="list photos">
-        {{ range where .Site.Pages.ByDate.Reverse "Section" "photos" }}
-          {{ if ne .Kind "section" }}
-          <li>
-            <a href="{{ .Permalink }}" title="{{ .Title }}">
-            {{ with .Params.image }}
-        <img src="{{ . }}"></img>
-      {{ end }}</a>
-          </li>
-          {{ end }}
-        {{ end }}
-      </ul>
-      {{ end }}
-  </div>
-</main>
-</body>
+
+        <span itemprop="articleBody">
+          {{ .Content }}
+        </span>
+      </section>
+      {{ partial "footer.html" . }}
+    </main>
+  </body>
 </html>
