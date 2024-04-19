@@ -23,7 +23,7 @@
     {{ if $paginator.HasPrev }}
       <span class="page-item">
         <a class="page-link" href="{{ $paginator.Prev.URL }}" rel="next">
-          ←
+          Previous
         </a>
       </span>
     {{ end }}
@@ -69,7 +69,7 @@
     {{ if $paginator.HasNext }}
     <span class="page-item">
       <a class="page-link" href="{{ $paginator.Next.URL }}" >
-        →
+        Next
       </a>
     </span>
     {{ end }}
