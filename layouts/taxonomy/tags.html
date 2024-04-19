@@ -9,8 +9,8 @@
         <section>
           <ul reversed class="list">
             {{ range .Data.Pages }}
-            <li>
-              <a class="link" href="{{.RelPermalink}}">{{ .Title }} </a>
+            <li itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+              <a class="link" href="{{.RelPermalink}}" title="{{ .Title }}" itemprop="name url">{{ .Title }} </a>
               <hr class="hr-list">
               <time class="g time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "02/01/06" .Date }}</time>
             </li>
