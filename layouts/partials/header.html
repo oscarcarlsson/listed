@@ -1,10 +1,10 @@
 <header>
-<p style="padding: 0;margin: 0;"><a href="/"><b>monotux.tech</b></a></p>
-<ul style="padding: 0;margin: 0;">
-  <li><a href="/posts">Archives</a></li>
-  <li><a href="/tags">Tags</a></li>
-  <li><a href="/uses">Uses</a></li>
-  <li><a href="/about">About</a></li>
+  <p style="padding: 0;margin: 0;"><a href="/"><b>monotux.tech</b></a></p>
+  <ul style="padding: 0;margin: 0;">
+    {{ range .Site.Menus.main }}
+    {{ $text := print .Name | safeHTML }}
+    <li><a href="{{ .URL }}">{{ $text }}</a></li>
+    {{ end }}
 </ul>
 </header>
 <hr class="hr-list" style="padding: 0;margin: 0;">
