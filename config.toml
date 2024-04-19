@@ -1,7 +1,7 @@
 baseURL = ""
 languageCode = "en-us"
 title = "Liste"
-disableKinds = ["section", "categories", "tags"]
+disableKinds = ["section", "categories"]
 disqusShortname = ""
 pygmentsCodeFences = false
 pygmentsUseClasses = false
