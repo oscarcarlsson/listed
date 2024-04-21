@@ -7,7 +7,7 @@
       <div class="content">
         {{ partial "header.html" . }}
         <section>
-          <p><strong>All posts</strong></p>
+          <p><strong>All posts</strong>, sorted by date in descending order</p>
           <ul reversed class="list">
             {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
             {{ range $paginator.Pages }}
