@@ -8,14 +8,13 @@
         {{ partial "header.html" . }}
         <section>
           <ul reversed class="list">
-            {{ range .Paginator.Pages }}
-            {{ if ne .Kind "section" }}
+            {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
+            {{ range $paginator.Pages }}
             <li itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
               <a class="link" href="{{ .Permalink }}" title="{{ .Title }}" itemprop="name url">{{ .Title }}</a>
               <hr class="hr-list">
               <time class="g time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time>
             </li>
-            {{ end }}
             {{ end }}
           </ul>
         </section>
