@@ -4,16 +4,16 @@
   <body>
     <a class="skip-link" href="#main">Skip to main</a>
     <main id="main">
-      <div id="content">
+      <div class="content">
         {{ partial "header.html" . }}
-        <h2 class="post">{{ .Title }}</h2>
         <section>
+          <p><strong>All {{ .Title }}</strong>, sorted alphabetically</p>
           <ul reversed class="list">
-            {{ range .Data.Pages }}
+            {{ range .Data.Terms.Alphabetical }}
             <li itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-              <a class="link" href="{{.RelPermalink}}" title="{{ .Title }}" itemprop="name url">{{ .Title }} </a>
+              <a class="link" href="{{ .Page.Permalink }}" title="{{ .Page.Title }}" itemprop="name url">{{ .Page.Title }}</a>&nbsp;({{ .Count }})
               <hr class="hr-list">
-              <time class="g time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time>
+              <time class="g time" datetime="{{ dateFormat "2006-01-02" .Page.Date }}">{{ dateFormat "2006-01-02" .Page.Date }}</time>
             </li>
             {{ end }}
           </ul>

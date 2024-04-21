@@ -7,10 +7,9 @@
       <div class="content">
         {{ partial "header.html" . }}
         <section>
-          <p><strong>All posts</strong></p>
+          <p><strong>Tag:</strong> {{ .Title }}</p>
           <ul reversed class="list">
-            {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
-            {{ range $paginator.Pages }}
+            {{ range .Data.Pages }}
             <li itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
               <a class="link" href="{{ .Permalink }}" title="{{ .Title }}" itemprop="name url">{{ .Title }}</a>
               <hr class="hr-list">
