@@ -1,22 +1,16 @@
-<!doctype html>
-<html lang="en">
-  {{ partial "head.html" . }}
-  <body>
-    <a class="skip-link" href="#main">Skip to main</a>
-    <main id="main">
-      <div class="content">
-        {{ partial "header.html" . }}
-        {{ if eq .Type "posts" }}
-        <h2 class="post">{{ .Title }}</h2>
-        <p class="meta">
-          <time itemprop="datePublished" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat " January 02, 2006" .Date }}</time> &bull;
-          {{ partial "tags.html" .}}
-        </p>
-        {{ end }}
-        <span itemprop="articleBody">
-          {{ .Content }}
-        </span>
-      </div>
-    </main>
-  </body>
-</html>
+{{ define "main" }}
+{{ if eq .Type "posts" }}
+<h2 class="post">{{ .Title }}</h2>
+<p class="meta">
+  <time itemprop="datePublished" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat " January 02, 2006" .Date }}</time> &bull;
+  {{ partial "tags.html" .}}
+</p>
+{{ end }}
+<span itemprop="articleBody">
+  {{ .Content }}
+</span>
+{{ end }}
+
+{{ define "paginator" }}
+<!-- no pagination plz -->
+{{ end }}
