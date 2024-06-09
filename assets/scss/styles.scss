@@ -33,24 +33,14 @@ body {
 h1, h2, h3, h4, h5, strong, b {
     font-size: inherit;
     font-weight: 600;
-    //text-transform: uppercase;
-}
-
-pre {
-    //white-space: pre-wrap;
-    //word-break: break-all
 }
 
 header {
-    //display: flex;
-    //justify-content: space-between;
-    //padding-bottom: 0.5rem;
     line-height: 2;
     padding-bottom: 1.5rem;
 }
 
 .link {
-    //white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -128,10 +118,6 @@ ul, ol {
 
 header {
     line-height: 2;
-    //padding-bottom: 1.5rem;
-    //flex-basis: 10rem;
-    //flex-grow: 1;
-    //position: relative;
     display: flex;
     justify-content: space-between;
     padding-bottom: 1rem;
@@ -144,14 +130,9 @@ header a {
 header ul {
     list-style-type: none;
     padding: 0;
-    //border-right: 1px solid #edf2f7;
-
 }
 
 header li, header a {
-    //margin-bottom: .2rem;
-    //text-align: right;
-    //margin-right: 2rem;
     display: inline;
 }
 
@@ -207,7 +188,6 @@ p.pagination span.active {
     border: 0;
     border-bottom: 1px dotted #ccc;
     flex: 1 0 1rem;
-    //opacity: .25;
 }
 
 .m,
@@ -219,4 +199,8 @@ hr {
 img {
     max-width: 100%;
     height: auto;
+}
+
+.small-caps {
+    font-variant: small-caps;
 }
