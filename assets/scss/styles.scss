@@ -204,3 +204,16 @@ img {
 .small-caps {
     font-variant: small-caps;
 }
+
+/* stolen from sakura.css */
+table {
+  text-align: justify;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+td, th {
+  padding: 0.5em;
+  border-bottom: 1px solid #f1f1f1;
+}
