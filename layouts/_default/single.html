@@ -1,6 +1,6 @@
 {{ define "main" }}
-{{ if eq .Type "posts" }}
 <h2 class="post">{{ .Title }}</h2>
+{{ if eq .Type "posts" }}
 <p class="meta">
   <time itemprop="datePublished" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "January 02" .Date }}, <a href="/posts/{{ dateFormat "2006" .Date }}">{{ dateFormat "2006" .Date }}</a></time> &bull;
   {{ partial "tags.html" . }}

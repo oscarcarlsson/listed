@@ -4,15 +4,12 @@
 }
 
 body {
-    font: 1rem/1.5 -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica,helvetica neue,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 2rem;
-    //color: #454545;
-    //background: hsla(93, 0%, 96%, 1.00);
+    // Default to Noto Sans if available, otherwise Roboto for Android, SF for iOS
+    font: 1rem/1.5 'Noto Sans', -apple-system, sans-serif;
+    font-weight: normal;
+    text-rendering: geometricPrecision;
     color: #000;
-    //background-color: #f5f5f5;
+    background-color: #fcfcfc;
 }
 
 .skip-link {
@@ -31,13 +28,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, strong, b {
-    font-size: inherit;
     font-weight: 600;
-}
-
-header {
-    line-height: 2;
-    padding-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .link {
@@ -62,12 +54,22 @@ blockquote {
 
 a,
 a:visited {
-    color: inherit;
+    color: #00008B;
+    text-decoration: 1px solid black;
 }
 
-a:hover,
-a.heading-link {
-    text-decoration: none
+
+a:hover {
+    text-decoration: none;
+    color:#8B0000;
+}
+
+.meta a {
+    color: #777;
+}
+
+.meta a:hover {
+    color:#8B0000;
 }
 
 pre {
@@ -77,9 +79,9 @@ pre {
     overflow-wrap: normal;
 }
 
-code, pre {
-    font-family: San Francisco Mono, Monaco, "Consolas", "Lucida Console","DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
-    font-size: normal;
+code, pre, .highlight {
+    // Yes I do get to set my favorite fonts here!
+    font-family: JetBrains Mono, 'Droid Sans Mono', "Noto Mono", "Cascadia Code", "Consolas", monospace;
     font-size: small;
     background: #eee
 }
@@ -108,7 +110,7 @@ ul, ol {
 }
 
 .meta {
-    color: #777
+    color: #777;
 }
 
 .content {
@@ -125,6 +127,8 @@ header {
 
 header a {
     text-decoration: none;
+    color:#777;
+    display: inline;
 }
 
 header ul {
@@ -132,12 +136,8 @@ header ul {
     padding: 0;
 }
 
-header li, header a {
+header li {
     display: inline;
-}
-
-h2.post {
-    padding-top: .5rem;
 }
 
 header ul a:first-child {
@@ -160,10 +160,12 @@ p.pagination {
 p.pagination a {
     text-decoration: none;
     margin: 10px;
+    color:#000;
 }
 
 p.pagination a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color:#8B0000;
 }
 
 p.pagination span.active {
@@ -202,7 +204,41 @@ img {
 }
 
 .small-caps {
-    font-variant: small-caps;
+    font-variant: all-small-caps;
+    padding: 0;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1.5em;
+    border-bottom: 1px solid grey;
+}
+
+.grid a {
+    color: black;
+}
+
+.grid a:hover {
+    color:#8B0000;
+}
+
+.site-title {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    text-align: left;
+    font-variant: all-small-caps;
+}
+
+.site-menu {
+    font-weight: normal;
+    font-variant: all-small-caps;
+    text-align: right;
+    margin: 0;
+    padding: 0;
 }
 
 /* stolen from sakura.css */
