@@ -1,25 +1,21 @@
-*, :after, :before {
+*,
+:after,
+:before {
     box-sizing: border-box;
     padding: 0;
 }
 
 body {
-    // Default to Noto Sans if available, otherwise Roboto for Android, SF for iOS
-    font: 1rem/1.5 'Noto Sans', -apple-system, sans-serif;
-    font-weight: normal;
+    font: 1rem/1.5 system-ui, -apple-system, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     text-rendering: geometricPrecision;
-    color: #000;
-    background-color: #fcfcfc;
+    background-color: #fdfdfd;
 }
 
 .skip-link {
     position: absolute;
     top: -40px;
     left: 0;
-    //margin: 1.5rem 0;
     background: #eee;
-    //color: white;
-    //padding: 1.5rem;
     z-index: 100;
 }
 
@@ -27,7 +23,13 @@ body {
     top: 0;
 }
 
-h1, h2, h3, h4, h5, strong, b {
+h1,
+h2,
+h3,
+h4,
+h5,
+strong,
+b {
     font-weight: 600;
     margin-bottom: 0;
 }
@@ -58,10 +60,9 @@ a:visited {
     text-decoration: 1px solid black;
 }
 
-
 a:hover {
     text-decoration: none;
-    color:#8B0000;
+    color: #8B0000;
 }
 
 .meta a {
@@ -69,7 +70,7 @@ a:hover {
 }
 
 .meta a:hover {
-    color:#8B0000;
+    color: #8B0000;
 }
 
 pre {
@@ -79,11 +80,13 @@ pre {
     overflow-wrap: normal;
 }
 
-code, pre, .highlight {
-    // Yes I do get to set my favorite fonts here!
-    font-family: JetBrains Mono, 'Droid Sans Mono', "Noto Mono", "Cascadia Code", "Consolas", monospace;
+code,
+pre,
+.highlight {
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     font-size: small;
-    background: #eee
+    background: #eee;
+    hyphens: none;
 }
 
 code {
@@ -95,7 +98,8 @@ ul {
     list-style-type: square;
 }
 
-ul, ol {
+ul,
+ol {
     padding-left: 1.2rem;
 }
 
@@ -127,7 +131,7 @@ header {
 
 header a {
     text-decoration: none;
-    color:#777;
+    color: #777;
     display: inline;
 }
 
@@ -160,12 +164,12 @@ p.pagination {
 p.pagination a {
     text-decoration: none;
     margin: 10px;
-    color:#000;
+    color: #000;
 }
 
 p.pagination a:hover {
     text-decoration: none;
-    color:#8B0000;
+    color: #8B0000;
 }
 
 p.pagination span.active {
@@ -221,7 +225,7 @@ img {
 }
 
 .grid a:hover {
-    color:#8B0000;
+    color: #8B0000;
 }
 
 .site-title {
@@ -243,13 +247,23 @@ img {
 
 /* stolen from sakura.css */
 table {
-  text-align: justify;
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2rem;
+    text-align: justify;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
 }
 
-td, th {
-  padding: 0.5em;
-  border-bottom: 1px solid #f1f1f1;
+td,
+th {
+    padding: 0.5em;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+span[itemprop="articleBody"] p, li, blockquote {
+    hyphens: auto;
 }
