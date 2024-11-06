@@ -293,3 +293,58 @@ span[itemprop="articleBody"] p, li, blockquote {
     @include notice(#8ebeeb);
     font-size: small;
 }
+
+.container {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: .25em;
+}
+
+.link, .time, .tags {
+    white-space: nowrap;
+}
+
+.link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.tags {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+.tags a {
+    color:#777;
+    font-size: small;
+    margin-right: .25em;
+    font-variant: all-small-caps;
+}
+.tags a::before {
+    content: '#';
+}
+.tags a:hover {
+    color: #8B0000;
+}
+
+@media (max-width: 600px) {
+    .link {
+      flex-grow: 0;
+      text-overflow: ellipsis;
+    }
+
+    .tags {
+      display: none;
+    }
+
+    .container {
+      justify-content: space-between;
+    }
+  }

@@ -3,9 +3,14 @@
 <ul reversed class="list">
   {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
   {{ range $paginator.Pages }}
-  <li itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <li itemprop="blogPost" class="container" itemscope itemtype="https://schema.org/BlogPosting">
     <a class="link" href="{{ .Permalink }}" title="{{ .Title }}" itemprop="name url">{{ .Title }}</a>{{ if .Draft }} &#8212; <strong>DRAFT</strong>{{ end }}
-    <hr class="hr-list">
+    <div class="tags">
+      {{ range $i, $e := .Params.tags -}}
+      {{- if $i -}} {{ end -}}
+      <a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'>{{ $e }}</a>
+      {{- end -}}
+    </div>
     <time class="g time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time>
   </li>
   {{ end }}
