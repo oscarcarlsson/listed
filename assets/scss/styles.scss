@@ -94,6 +94,11 @@ code {
     border: none;
 }
 
+// Remove silly line in highlight sections
+div.highlight pre code {
+    padding: 0;
+}
+
 ul {
     list-style-type: square;
 }
