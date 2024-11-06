@@ -286,4 +286,5 @@ span[itemprop="articleBody"] p, li, blockquote {
 
 .series-info {
     @include notice(#8ebeeb);
+    font-size: small;
 }

@@ -6,21 +6,12 @@
   {{ partial "tags.html" . }}
 </p>
 {{- if .Params.series -}}
-  {{- with index (.GetTerms "series") 0 -}}
     <div class="series-info">
-      <p>This post is part of the <a href="{{ .Permalink }}" style="font-weight: bold">{{ .LinkTitle }}</a> series.</p>
-    </div>
+  {{- with index (.GetTerms "series") 0 -}}
+  <p>This post is part of the <b>{{ .LinkTitle }}</b> series.</p>
   {{- end -}}
-{{- end -}}
-{{ end }}
-<span itemprop="articleBody">
-  {{ .Content }}
-</span>
-{{- if .Params.series -}}
-  <div class="post-series">
     {{- $series := where .Site.RegularPages.ByDate ".Params.series" "intersect" .Params.series -}}
     {{- with $series -}}
-    <h3 id="series">This series</h3>
     <ol>
         {{- range . -}}
         <li>
@@ -33,8 +24,12 @@
         {{- end -}}
     </ol>
     {{- end -}}
-  </div>
+    </div>
 {{- end -}}
+{{ end }}
+<span itemprop="articleBody">
+  {{ .Content }}
+</span>
 {{ end }}
 
 {{ define "paginator" }}
