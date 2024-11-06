@@ -4,7 +4,7 @@
   {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
   {{ range $paginator.Pages }}
   <li itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-    <a class="link" href="{{ .Permalink }}" title="{{ .Title }}" itemprop="name url">{{ .Title }}</a>
+    <a class="link" href="{{ .Permalink }}" title="{{ .Title }}" itemprop="name url">{{ .Title }}</a> -- {{ if .Draft }}<strong>DRAFT</strong>{{ end }}
     <hr class="hr-list">
     <time class="g time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time>
   </li>
