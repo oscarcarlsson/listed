@@ -5,10 +5,36 @@
   <time itemprop="datePublished" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "January 02" .Date }}, <a href="/posts/{{ dateFormat "2006" .Date }}">{{ dateFormat "2006" .Date }}</a></time> &bull;
   {{ partial "tags.html" . }}
 </p>
+{{- if .Params.series -}}
+  {{- with index (.GetTerms "series") 0 -}}
+    <div class="series-info">
+      <p>This post is part of the <a href="{{ .Permalink }}" style="font-weight: bold">{{ .LinkTitle }}</a> series.</p>
+    </div>
+  {{- end -}}
+{{- end -}}
 {{ end }}
 <span itemprop="articleBody">
   {{ .Content }}
 </span>
+{{- if .Params.series -}}
+  <div class="post-series">
+    {{- $series := where .Site.RegularPages.ByDate ".Params.series" "intersect" .Params.series -}}
+    {{- with $series -}}
+    <h3 id="series">This series</h3>
+    <ol>
+        {{- range . -}}
+        <li>
+            {{- if eq .File.UniqueID $.File.UniqueID -}}
+                <b>{{ .Title }}</b>
+            {{- else -}}
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{- end -}}
+        </li>
+        {{- end -}}
+    </ol>
+    {{- end -}}
+  </div>
+{{- end -}}
 {{ end }}
 
 {{ define "paginator" }}

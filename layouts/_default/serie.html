@@ -1,0 +1,12 @@
+{{ define "main" }}
+<p><strong>Series:</strong> {{ .Title }}</p>
+<ul reversed class="list">
+  {{ range .Data.Pages }}
+  <li itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <a class="link" href="{{ .Permalink }}" title="{{ .Title }}" itemprop="name url">{{ .Title }}</a>
+    <hr class="hr-list">
+    <time class="g time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
