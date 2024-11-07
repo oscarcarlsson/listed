@@ -7,7 +7,9 @@
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <link rel="canonical" href="{{ .Permalink | absURL }}">
   <link rel="dns-prefetch" href="https://stats.monotux.me/">
-  <link rel="alternate" type="application/atom+xml" title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}index.xml" />
+  {{ with .OutputFormats.Get "rss" -}}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+  {{ end }}
   {{ $styles := resources.Get "scss/styles.scss" | toCSS (dict "outputStyle" "compressed") | minify }}
   <style>{{ $styles.Content | safeCSS }}</style>
 
