@@ -272,6 +272,7 @@ html {
 
 span[itemprop="articleBody"] p, li, blockquote {
     hyphens: auto;
+    text-wrap: pretty;
 }
 
 @mixin notice($notice-color)
