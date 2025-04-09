@@ -1,3 +1,15 @@
+$color-link: #00008B;
+$color-link-hover: #8B0000;
+$color-link-meta: #777;
+$color-bg-light: #eee;
+$color-bg: #fdfdfd;
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 *,
 :after,
 :before {
@@ -7,15 +19,15 @@
 
 body {
     font: 1rem/1.5 system-ui, -apple-system, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    text-rendering: geometricPrecision;
-    background-color: #fdfdfd;
+    text-rendering: optimizeLegibility;
+    background-color: $color-bg;
 }
 
 .skip-link {
     position: absolute;
     top: -40px;
     left: 0;
-    background: #eee;
+    background: $color-bg-light;
     z-index: 100;
 }
 
@@ -37,40 +49,42 @@ b {
 .link {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     text-decoration: none;
 }
 
 .time {
     font-variant-numeric: tabular-nums;
-    white-space: nowrap;
 }
 
 blockquote {
-    border-left: 5px solid #eee;
+    border-left: 5px solid $color-bg-light;
     padding-left: 1em;
     margin: 0.5em 0;
 }
 
 a,
 a:visited {
-    color: #00008B;
+    color: $color-link;
     text-decoration: 1px solid black;
 }
 
 a:hover {
     text-decoration: none;
-    color: #8B0000;
+    color: $color-link-hover;
 }
 
-.meta a {
-    color: #777;
-}
+.meta {
+    color: $color-link-meta;
+    margin-top: 0;
+    font-size: smaller;
 
-.meta a:hover {
-    color: #8B0000;
+    a {
+        color: $color-link-meta;
+    }
+
+    a:hover {
+        color: $color-link-hover;
+    }
 }
 
 pre {
@@ -85,7 +99,7 @@ pre,
 .highlight {
     font-family: ui-monospace, 'JetBrains Mono', 'DejaVu Sans Mono', 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
     font-size: small;
-    background: #eee;
+    background: $color-bg-light;
     hyphens: none;
 }
 
@@ -118,27 +132,20 @@ ol {
     padding-bottom: .1rem
 }
 
-.meta {
-    color: #777;
-    margin-top: 0;
-    font-size: smaller;
-}
-
 .content {
     max-width: 70ch;
     margin: 0 auto;
 }
 
 header {
+    @include flex-between
     line-height: 2;
-    display: flex;
-    justify-content: space-between;
     padding-bottom: 1rem;
 }
 
 header a {
     text-decoration: none;
-    color: #777;
+    color: $color-link-meta;
     display: inline;
 }
 
@@ -176,7 +183,7 @@ p.pagination a {
 
 p.pagination a:hover {
     text-decoration: none;
-    color: #8B0000;
+    color: $color-link-hover;
 }
 
 p.pagination span.active {
@@ -232,7 +239,7 @@ img {
 }
 
 .grid a:hover {
-    color: #8B0000;
+    color: $color-link-hover;
 }
 
 .site-title {
@@ -296,9 +303,7 @@ span[itemprop="articleBody"] p, li, blockquote {
 }
 
 .container {
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-between
     width: 100%;
     gap: .25em;
 }
@@ -308,7 +313,6 @@ span[itemprop="articleBody"] p, li, blockquote {
 }
 
 .link {
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-shrink: 1;
@@ -323,7 +327,7 @@ span[itemprop="articleBody"] p, li, blockquote {
 }
 
 .tags a {
-    color:#777;
+    color:$color-link-meta;
     font-size: small;
     margin-right: .25em;
     font-variant: all-small-caps;
@@ -332,7 +336,7 @@ span[itemprop="articleBody"] p, li, blockquote {
     content: '#';
 }
 .tags a:hover {
-    color: #8B0000;
+    color: $color-link-hover;
 }
 
 @media (max-width: 600px) {
