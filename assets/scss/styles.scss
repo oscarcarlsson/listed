@@ -106,6 +106,12 @@ pre,
 code {
     padding: .1rem;
     border: none;
+
+    /* Fix iOS rendering multiple font sizes */
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 // Remove silly line in highlight sections
