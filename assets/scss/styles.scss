@@ -175,8 +175,7 @@ ol {
 }
 
 header {
-    @include flex-between
-    line-height: 2;
+    @include flex-between line-height: 2;
     padding-bottom: 1rem;
 }
 
@@ -313,22 +312,23 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-span[itemprop="articleBody"] p, li, blockquote {
+span[itemprop="articleBody"] p,
+li,
+blockquote {
     hyphens: auto;
     text-wrap: pretty;
 }
 
-@mixin notice($notice-color)
-{
+@mixin notice($notice-color) {
     margin: 0.5em 0;
     padding-left: 1em;
     border-left: 5px solid $notice-color;
 
-    > *:first-child {
+    >*:first-child {
         margin-top: 0;
     }
 
-    > *:last-child {
+    >*:last-child {
         margin-bottom: 0;
     }
 }
@@ -339,12 +339,13 @@ span[itemprop="articleBody"] p, li, blockquote {
 }
 
 .container {
-    @include flex-between
-    width: 100%;
+    @include flex-between width: 100%;
     gap: .25em;
 }
 
-.link, .time, .tags {
+.link,
+.time,
+.tags {
     white-space: nowrap;
 }
 
@@ -363,29 +364,31 @@ span[itemprop="articleBody"] p, li, blockquote {
 }
 
 .tags a {
-    color:$color-link-meta;
+    color: $color-link-meta;
     font-size: small;
     margin-right: .25em;
     font-variant: all-small-caps;
 }
+
 .tags a::before {
     content: '#';
 }
+
 .tags a:hover {
     color: $color-link-hover;
 }
 
 @media (max-width: 600px) {
     .link {
-      flex-grow: 0;
-      text-overflow: ellipsis;
+        flex-grow: 0;
+        text-overflow: ellipsis;
     }
 
     .tags {
-      display: none;
+        display: none;
     }
 
     .container {
-      justify-content: space-between;
+        justify-content: space-between;
     }
-  }
+}
